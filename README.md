@@ -11,7 +11,7 @@ Basic Frame for using mqtt as environment across mulitple windows machines.
 todo:  
 add linux scripts  
 add andriod profiles  
-change device name from ghost to variable  
+change device name from ghost to variable [Fixed](https://github.com/DanEdens/mqttenv/commit/7d4d165cc676eb14f93bee579ab2b1f1399a9369)
   
 fet.cmd - Get, for files stored as msg  
 fost.cmd - post, msg from a file  
