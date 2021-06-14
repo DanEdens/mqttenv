@@ -1,5 +1,13 @@
 Basic Frame for using mqtt as environment across mulitple windows machines.  
-  
+
+# Usage  
+```cmd
+  cd %userprofile%/bin  
+  Git clone git@github.com:DanEdens/mqttenv.git  
+  cd mqttenv
+  init.cmd
+```
+ 
 todo:  
 add linux scripts  
 add andriod profiles  
