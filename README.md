@@ -1,18 +1,5 @@
 Basic Frame for using mqtt as environment across mulitple windows machines.  
 
-# Usage  
-```cmd
-  cd %userprofile%/bin  
-  Git clone git@github.com:DanEdens/mqttenv.git  
-  cd mqttenv
-  init.cmd
-```
- 
-## todo:  
-1. add linux scripts  
-2. add andriod profiles  
-3. change device name from ghost to variable - [Fixed](https://github.com/DanEdens/mqttenv/commit/7d4d165cc676eb14f93bee579ab2b1f1399a9369)
-  
 fet.cmd - Get, for files stored as msg  
 
 fost.cmd - post, msg from a file  
