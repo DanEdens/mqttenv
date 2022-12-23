@@ -2,7 +2,7 @@ import os
 import subprocess
 
 def subscribe_to_mqtt_topic(
-    topic: str, awsip: str=os.getenv("AWSIP"), 
+    topic: str, path: str, awsip: str=os.getenv("AWSIP"), 
     awsport: str=os.getenv("AWSPORT")) -> str:
     """
     Subscribes to the MQTT topic with the specified name and writes the received messages to a file with the same name.
@@ -18,8 +18,8 @@ def subscribe_to_mqtt_topic(
     subprocess.run([
         "mosquitto_sub", "-h", awsip, "-p", awsport, 
         "-t", f"commands/{topic}", "-C", "1"], 
-        stdout=open(f"{last}.cmd", "w")
+        stdout=open(f"{path}/{last}.cmd", "w")
         )
 
     # Return the file path
-    return f"{last}.cmd"
+    return f"{path}/{last}.cmd"
