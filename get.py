@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 def set_variable_from_mqtt_topic(name: str, awsip: str, awsport: str, topic: str) -> str:
     """
@@ -20,4 +21,15 @@ def set_variable_from_mqtt_topic(name: str, awsip: str, awsport: str, topic: str
 
     return get
 
+def main():
+    if len(sys.argv) != 5:
+        print("Usage: python get.py <name> <awsip> <awsport> <topic>")
+        sys.exit(1)
 
+    name, awsip, awsport, topic = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    value = set_variable_from_mqtt_topic(name, awsip, awsport, topic)
+    print(f"Variable '{name}' set to: {value}")
+    return value
+
+if __name__ == "__main__":
+    main()
