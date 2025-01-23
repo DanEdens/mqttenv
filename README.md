@@ -2,15 +2,7 @@
 
 **Your Information Conductor for the Madness_Interactive Ecosystem**
 
-Welcome to **Omnispindle**, a high-performance MQTT-based message broker designed for seamless data sharing and synchronization within the Madness_Interactive ecosystem. Whether you're working with Tinker, Swarmonomicon, or other components, Omnispindle ensures your data flows smoothly and efficiently.
-
-## Features 🌟
-
-- **High-Performance MQTT Client:** Built with Rust for maximum efficiency and reliability
-- **Python Bindings:** Seamless integration with Python projects via PyO3
-- **Command-Line Interface:** Easy-to-use CLI for common operations
-- **Environment-Aware:** Configurable via environment variables or command line
-- **Topic-Based Routing:** Intelligent organization of message flows
+Welcome to **Omnispindle**
 
 ## Installation 🔧
 
@@ -26,6 +18,25 @@ cargo build --release
 
 # Install Python package (optional)
 pip install .
+
+# Add CLI command to PATH (Linux/Mac)
+echo 'export PATH="$PATH:$(pwd)/target/release"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+```powershell
+REM Clone the repository
+git clone https://github.com/DanEdens/Omnispindle
+cd Omnispindle
+
+REM Build Rust binary
+cargo build --release
+
+REM Install Python package (optional)
+pip install .
+
+REM Add CLI command to PATH (Windows)
+setx PATH "%PATH%;%cd%\target\release"
 ```
 
 ### Environment Variables
