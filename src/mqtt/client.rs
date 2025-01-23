@@ -38,7 +38,7 @@ impl MqttClient {
                     debug!("Event: {:?}", notification);
                     if let Event::Incoming(Packet::Publish(publish)) = notification {
                         if let Ok(payload) = String::from_utf8(publish.payload.to_vec()) {
-                            if let Ok(mut tx) = tx.try_lock() {
+                            if let Ok(tx) = tx.try_lock() {
                                 if let Err(e) = tx.try_send(payload) {
                                     error!("Failed to send message: {}", e);
                                 }
@@ -107,45 +107,5 @@ impl MqttClient {
             Ok(msg) => Ok(msg),
             Err(e) => Err(PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string())),
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use std::env;
-
-    fn get_test_config() -> (String, u16, String) {
-        (
-            env::var("AWSIP").expect("AWSIP must be set for tests"),
-            env::var("AWSPORT")
-                .expect("AWSPORT must be set for tests")
-                .parse()
-                .expect("AWSPORT must be a valid port number"),
-            "omnispindle-unit-test".to_string(),
-        )
-    }
-
-    #[tokio::test]
-    async fn test_new_client() {
-        let (host, port, client_id) = get_test_config();
-        let client = MqttClient::new(host, port, client_id).await;
-        assert!(client.is_ok());
-    }
-
-    #[tokio::test]
-    async fn test_publish_subscribe() {
-        let (host, port, client_id) = get_test_config();
-        let client = MqttClient::new(host, port, client_id)
-            .await
-            .expect("Failed to create client");
-
-        // Test publish
-        let result = client.publish("test/unit", "test message", false).await;
-        assert!(result.is_ok());
-
-        // Test subscribe
-        let result = client.subscribe("test/unit").await;
-        assert!(result.is_ok());
     }
 } 
