@@ -6,11 +6,11 @@ use crate::mqtt::MqttClient;
 pub struct GetCommand {
     /// Variable name to get
     #[arg(short, long)]
-    name: String,
+    pub name: String,
 
     /// MQTT topic to get the value from
     #[arg(short, long)]
-    topic: String,
+    pub topic: String,
 }
 
 impl GetCommand {
@@ -18,8 +18,8 @@ impl GetCommand {
         // Subscribe to topic and get first message
         client.subscribe(&self.topic).await?;
         
-        // TODO: Implement message receiving
-        // For now, this is a placeholder that mimics the Python implementation
-        Ok("placeholder".to_string())
+        // Wait for a message
+        let value = client.receive_message().await?;
+        Ok(value)
     }
 } 

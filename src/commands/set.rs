@@ -6,15 +6,15 @@ use crate::mqtt::MqttClient;
 pub struct SetCommand {
     /// Variable name to set
     #[arg(short, long)]
-    name: String,
+    pub name: String,
 
     /// Value to set
     #[arg(short, long)]
-    value: String,
+    pub value: String,
 
     /// Whether to retain the message
     #[arg(short, long, default_value = "true")]
-    retain: bool,
+    pub retain: bool,
 }
 
 impl SetCommand {

@@ -7,11 +7,11 @@ use std::path::PathBuf;
 pub struct SubscribeCommand {
     /// Topic to subscribe to
     #[arg(short, long)]
-    topic: String,
+    pub topic: String,
 
     /// Output path for received messages
     #[arg(short, long)]
-    path: PathBuf,
+    pub path: PathBuf,
 }
 
 impl SubscribeCommand {
