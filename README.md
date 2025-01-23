@@ -60,7 +60,7 @@ omnispindle set --name <name> --value <value> [--retain]
 omnispindle subscribe --topic <topic> --path <output_path>
 ```
 
-### Python API
+<!-- ### Python API
 
 ```python
 from omnispindle import MqttClient
@@ -73,7 +73,7 @@ client.publish("my/topic", "Hello, World!", retain=True)
 
 # Subscribe to topic
 client.subscribe("my/topic")
-```
+``` -->
 
 ## Development 🛠️
 
@@ -86,9 +86,9 @@ cargo build
 # Run tests
 cargo test
 
-# Build Python package
-maturin develop
 ```
+<!-- # # Build Python package -->
+<!-- # maturin develop -->
 
 ### Project Structure
 
@@ -100,13 +100,11 @@ Omnispindle/
 │   ├── mqtt/              # MQTT implementation
 │   └── commands/          # CLI commands
 ├── python/                # Python bindings
+├── scripts/
+├── tests/
 └── README.md
 ```
 
 ## Contributing 🤝
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License 📄
-
-This project is licensed under the MIT License - see the LICENSE file for details.
