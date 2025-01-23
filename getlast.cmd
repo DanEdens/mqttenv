@@ -1,3 +1,4 @@
+REM i forgot why this is seperate. no log? 
 @echo off
 set "name=%1"
 @REM for %%a in ("%name: ="=:="%") do set "last=%%~a"

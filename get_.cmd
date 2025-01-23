@@ -1,3 +1,4 @@
+REM silent get
 @echo off
 set "name=%1"
 for %%a in ("%name: ="=:="%") do set "last=%%~a"
